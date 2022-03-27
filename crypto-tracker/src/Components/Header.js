@@ -17,5 +17,3 @@ const Header = () => {
 };
 
 export default Header;
-
-//test from Nael
