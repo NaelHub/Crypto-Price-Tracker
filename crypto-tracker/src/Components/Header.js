@@ -1,5 +1,6 @@
-import { AppBar, Container, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Container, createTheme, makeStyles, MenuItem, Select, Toolbar, Typography, ThemeProvider } from '@material-ui/core';
 import React from 'react';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -14,11 +15,25 @@ const useStyles = makeStyles(() => ({
 const Header = () => {
 
   const classes = useStyles()
-  return;
+
+  const history = useHistory()
+
+  const darkTheme = createTheme({
+    palette: {
+      primary: {
+        main: "#fff",
+      },
+      type: "dark",
+    },
+  }) 
+
+  return(
+    <ThemeProvider>
   <AppBar color="transparent" position="static">
     <Container>
       <Toolbar>
-        <Typography className={classes.title}>Crypto Compass</Typography>
+        <Typography onClick={() => histoy.push("/")} className={classes.title}>
+          Crypto Compass</Typography>
         <Select
           variant="outlined"
           style={{
@@ -32,7 +47,9 @@ const Header = () => {
         </Select>
       </Toolbar>
     </Container>
-  </AppBar>;
+  </AppBar>
+  </ThemeProvider>
+  );
 };
 
 export default Header;
