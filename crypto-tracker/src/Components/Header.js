@@ -16,6 +16,6 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default ;
 
 // testing testing 2
