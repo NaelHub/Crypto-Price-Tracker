@@ -50,6 +50,8 @@ const Header = () => {
           <MenuItem>USD</MenuItem>
           <MenuItem>CAD</MenuItem>
         </Select>
+        
+        <Authmodal/>
       </Toolbar>
     </Container>
   </AppBar>
