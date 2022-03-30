@@ -5,6 +5,11 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Login from "./Login"
 import Signup from './Signup';
+import { Box } from '@material-ui/core';
+import GoogleButton from "react-google-button";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -30,6 +35,18 @@ export default function Authmodal() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((res) => {
+        setAlert({
+          open: true,
+          message: `Sign Up Successful. Welcome ${res.user.email}`,
+          type: "success",
+        });
+
 
   return (
     <div>
@@ -77,7 +94,14 @@ export default function Authmodal() {
             </AppBar>
             {value === 0 && <Login handleClose={handleClose} />}
             {value === 1 && <Signup handleClose={handleClose} />}
-          </div>
+            <Box className={classes.google}>
+                <span>OR</span>
+                <GoogleButton
+                style={{ width: "100%", outline: "none" }}
+                onClick={signInWithGoogle}
+              />
+            </Box>
+          </div> 
         </Fade>
       </Modal>
     </div>

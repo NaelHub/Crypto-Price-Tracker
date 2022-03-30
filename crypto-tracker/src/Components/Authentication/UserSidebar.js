@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import { Avatar, } from "@material-ui/core";
+import { signOut } from "firebase/auth";
 
 
 const useStyles = makeStyles({
@@ -103,10 +104,19 @@ export default function UserSidebar() {
             src={user.photoURL}
             alt={user.displayName || user.email}
           />
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
+          </div>
+              </div>
+              <Button
+                variant="contained"
+                className={classes.logout}
+                onClick={logOut}
+              >
+                Log Out
+              </Button>
+            </div>
+          </Drawer>
+        </React.Fragment>
+      ))}
+    </div>
   );
 }
