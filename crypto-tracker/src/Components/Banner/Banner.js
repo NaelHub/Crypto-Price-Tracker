@@ -1,9 +1,9 @@
-import React from "react";
-import Carousel from "./carousel";
+import { Container, makeStyles, Typography } from "@material-ui/core";
+import Carousel from "./Carousel";
 
-const useStyle = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   banner: {
-    backgroundImage: "url(./baner2.jpg)",
+    backgroundImage: "url(./banner5.jpeg)",
   },
   bannerContent: {
     height: 400,
@@ -19,40 +19,45 @@ const useStyle = makeStyles(() => ({
     justifyContent: "center",
     textAlign: "center",
   },
+  carousel: {
+    height: "50%",
+    display: "flex",
+    alignItems: "center",
+  },
 }));
 
-const Banner = () => {
+function Banner() {
   const classes = useStyles();
-  return 
-    <div className= {classes.banner}>
+
+  return (
+    <div className={classes.banner}>
       <Container className={classes.bannerContent}>
         <div className={classes.tagline}>
           <Typography
-          variant="h2"
-          style={{
-            fontWeight: "bold",
-            marginBottom: 15,
-            fontFamily: "Monstserrat",
-          }}
-        >
-          Cypto Compass
-        </Typography>
-        <Typography
-        variant= "subtitle2"
-        style={{
-          color: "darkgrey",
-          textTransform: "capitalize",
-          fontFamily: "Montserrat",
-        }}
-
-        Get all the info regarding your favourite crypto currency
-        ></Typography> 
+            variant="h2"
+            style={{
+              fontWeight: "bold",
+              marginBottom: 15,
+              fontFamily: "Montserrat",
+            }}
+          >
+            Crypto Compass
+          </Typography>
+          <Typography
+            variant="subtitle2"
+            style={{
+              color: "darkgrey",
+              textTransform: "capitalize",
+              fontFamily: "Montserrat",
+            }}
+          >
+            Helping you navigate the Crypto space!
+          </Typography>
         </div>
-        <Carousel></Carousel>
-
+        {/* <Carousel /> */}
       </Container>
-    </div>;
-  
-};
+    </div>
+  );
+}
 
 export default Banner;

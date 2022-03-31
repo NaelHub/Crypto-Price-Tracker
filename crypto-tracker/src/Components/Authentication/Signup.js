@@ -1,7 +1,9 @@
-import { Box, TextField } from "@material-ui/core";
-import React from "react";
-import { useState } from "react";          
-                          
+import { Box, Button, TextField } from "@material-ui/core";
+import { useState } from "react";
+import { CryptoState } from "../../CryptoContext";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
+
 const Signup = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
